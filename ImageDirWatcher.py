@@ -37,29 +37,3 @@ class ImageDirWatcher:
             self.__input_path,
             recursive=True
         )
-
-
-if __name__ == "__main__":
-    input_path = './unmarked'
-    output_path = './marked'
-    watermark_path = './watermark/sample.png'
-    pos = 'BL'
-    padding = 0.6
-    opacity = 0.7
-    rel_size = 0.03
-
-    if not os.path.exists(watermark_path):
-        os.makedirs(watermark_path)
-
-    if not os.path.exists(input_path):
-        os.makedirs(input_path)
-    elif len(sys.argv) > 1:
-        input_path = sys.argv[1]
-
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
-    elif len(sys.argv) > 2:
-        output_path = sys.argv[2]
-
-    ImageDirWatcher(input_path, output_path, watermark_path, rel_size,
-                    padding, pos, opacity).run()

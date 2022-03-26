@@ -1,7 +1,11 @@
 import os
 import string
+import sys
+
 import numpy as np
 from PIL import Image
+
+from ImageDirWatcher import ImageDirWatcher
 
 
 def watermark(img_path: string, output_path: string, watermark_path: string = './watermark/sample.png', rel_size: float = 0.05, padding: tuple[int, int] or float = 0.5, pos: string = 'BL', opacity: float = 0.6):
@@ -68,3 +72,29 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
     output_img.paste(wm_img, wm_pos, mask=wm_img)
     output_img = output_img.convert('RGB')
     output_img.save(output_path)
+
+
+if __name__ == "__main__":
+    input_path = './unmarked'
+    output_path = './marked'
+    watermark_path = './watermark/sample.png'
+    pos = 'BL'
+    padding = 0.6
+    opacity = 0.7
+    rel_size = 0.03
+
+    if not os.path.exists(watermark_path):
+        os.makedirs(watermark_path)
+
+    if not os.path.exists(input_path):
+        os.makedirs(input_path)
+    elif len(sys.argv) > 1:
+        input_path = sys.argv[1]
+
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+    elif len(sys.argv) > 2:
+        output_path = sys.argv[2]
+
+    ImageDirWatcher(input_path, output_path, watermark_path, rel_size,
+                    padding, pos, opacity).run()
