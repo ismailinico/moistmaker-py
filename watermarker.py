@@ -1,7 +1,9 @@
 import os
 import time
+
 from PIL import Image
 from watchdog.events import RegexMatchingEventHandler
+
 
 class WaterMarker(RegexMatchingEventHandler):
     IMAGES_REGEX = [r"(.*)\.jpg$"]
@@ -20,7 +22,8 @@ class WaterMarker(RegexMatchingEventHandler):
         self.process(event)
 
     def process(self, event):
-        og_filename, file_ext = os.path.splitext(os.path.basename(event.src_path))
+        og_filename, file_ext = os.path.splitext(
+            os.path.basename(event.src_path))
         output_dir = os.path.abspath(self.__output_path)
         output_path = f"{output_dir}/{og_filename}_marked.jpg"
         # image = Image.open(event.src_path)
