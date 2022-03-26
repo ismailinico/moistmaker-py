@@ -1,31 +1,34 @@
 import os
-import time
+import string
+from email.utils import parseaddr
 
 from PIL import Image
-from watchdog.events import RegexMatchingEventHandler
 
 
-class WaterMarker(RegexMatchingEventHandler):
-    IMAGES_REGEX = [r"(.*)\.jpg$"]
+def watermark(img_path: string, output_path: string, watermark_path: string = './watermark/sample.png', padding: tuple[int, int] = (200, 200), pos: string = 'BL', opacity: float = 0.6):
+    assert os.path.splitext(os.path.basename(watermark_path))[
+        1] == '.png', "Watermark file must be of type PNG."
+    assert pos in ['TL', 'TR', 'BL', 'BR'], "Specified watermark position is invalid. Valid position values are TL, TR, BL and BR"
+    base_image = Image.open(img_path)
+    img_w, img_h = base_image.size
 
-    def __init__(self, output_path):
-        self.__output_path = output_path
-        super().__init__(self.IMAGES_REGEX)
+    wm_img = Image.open(watermark_path)
+    wm_img.convert("RGBA")
+    # wm_img.putalpha(int(255*opacity))
+    wm_w, wm_h = wm_img.size
 
-    def on_created(self, event):
-        # Wait until file size has stopped increasing before processing file
-        # Important when uploading larger filed
-        file_size = -1
-        while file_size != os.path.getsize(event.src_path):
-            file_size = os.path.getsize(event.src_path)
-            time.sleep(1)
-        self.process(event)
+    wm_pos = ()
+    if pos == 'TL':
+        wm_pos = (padding[0], padding[1])
+    elif pos == 'TR':
+        wm_pos = (img_w - padding[0] - wm_w, padding[1])
+    elif pos == 'BR':
+        wm_pos = (img_w - padding[0] - wm_w, img_h - padding[1] - wm_h)
+    elif pos == 'BL':
+        wm_pos = (padding[0], img_h - padding[1] - wm_h)
 
-    def process(self, event):
-        og_filename, file_ext = os.path.splitext(
-            os.path.basename(event.src_path))
-        output_dir = os.path.abspath(self.__output_path)
-        output_path = f"{output_dir}/{og_filename}_marked.jpg"
-        # image = Image.open(event.src_path)
-        # image.save(output_path)
-        print("New image was created in watched dir!")
+    output_img = Image.new('RGBA', (img_w, img_h), (0, 0, 0, 0))
+    output_img.paste(base_image, (0, 0))
+    output_img.paste(wm_img, wm_pos, mask=wm_img)
+    output_img = output_img.convert('RGB')
+    output_img.save(output_path)
