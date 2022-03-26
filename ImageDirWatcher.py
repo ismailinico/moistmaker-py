@@ -1,16 +1,18 @@
 import os
+import string
 import sys
 import time
 
 from watchdog.observers import Observer
 
-from watermarker import WaterMarker
+from ImageEventHandler import ImageEventHandler
 
 
-class Watcher:
-    def __init__(self, input_path, output_path):
+class ImageDirWatcher:
+    def __init__(self, input_path: string, output_path: string, watermark_path: string, rel_size: float, padding: tuple[int, int] | tuple[float, float], pos: string, opacity: float):
         self.__input_path = input_path
-        self.__event_handler = WaterMarker(output_path)
+        self.__event_handler = ImageEventHandler(
+            output_path, watermark_path, rel_size, padding, pos, opacity)
         self.__event_observer = Observer()
 
     def run(self):
@@ -40,6 +42,14 @@ class Watcher:
 if __name__ == "__main__":
     input_path = './unmarked'
     output_path = './marked'
+    watermark_path = './watermark/sample.png'
+    pos = 'BL'
+    padding = (200, 200)
+    opacity = 0.65
+    rel_size = 0.03
+
+    if not os.path.exists(watermark_path):
+        os.makedirs(watermark_path)
 
     if not os.path.exists(input_path):
         os.makedirs(input_path)
@@ -51,4 +61,5 @@ if __name__ == "__main__":
     elif len(sys.argv) > 2:
         output_path = sys.argv[2]
 
-Watcher(input_path, output_path).run()
+    ImageDirWatcher(input_path, output_path, watermark_path, rel_size,
+                    padding, pos, opacity).run()
