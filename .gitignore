@@ -127,3 +127,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Ignore all image files except for sample data
+marked/*
+!marked/sample_dark_marked.jpg
+!marked/sample_light_marked.jpg
+
+unmarked/*
+!unmarked/sample_dark.jpg
+!unmarked/sample_light.jpg
+
+watermark/*
+!watermark/sample.png
