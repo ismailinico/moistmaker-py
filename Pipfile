@@ -5,6 +5,7 @@ verify_ssl = true
 [packages] # Here goes your package requirements for running the application and its versions (which packages you will use when running the application).
 pillow = "*"
 watchdog = "*"
+numpy = "*"
 
 [dev-packages] # Here goes your package requirements for developing the application and its versions (which packages you will use when developing the application)
 autopep8 = "*"
