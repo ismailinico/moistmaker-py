@@ -131,7 +131,7 @@ dmypy.json
 # Ignore all image files except for sample data
 marked/*
 !marked/sample_dark_marked.jpg
-!marked/sample_light_marked.jpg
+!marked/sampe_light_marked.jpg
 
 unmarked/*
 !unmarked/sample_dark.jpg
