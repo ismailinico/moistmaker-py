@@ -4,13 +4,13 @@ import time
 
 from watchdog.events import RegexMatchingEventHandler
 
-from Watermarker import watermark
+from watermarker import watermark
 
 
 class ImageEventHandler(RegexMatchingEventHandler):
     IMAGES_REGEX = [r"(.*)\.jpg$"]
 
-    def __init__(self, output_path: string, watermark_path: string, rel_size: float, padding: tuple[int, int] | tuple[float, float], pos: string, opacity: float):
+    def __init__(self, output_path: string, watermark_path: string, rel_size: float, padding: tuple[int, int] or float, pos: string, opacity: float):
         self.__output_path = output_path
         self.__rel_size = rel_size
         self.__watermark_path = watermark_path

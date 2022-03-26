@@ -9,7 +9,7 @@ from ImageEventHandler import ImageEventHandler
 
 
 class ImageDirWatcher:
-    def __init__(self, input_path: string, output_path: string, watermark_path: string, rel_size: float, padding: tuple[int, int] | tuple[float, float], pos: string, opacity: float):
+    def __init__(self, input_path: string, output_path: string, watermark_path: string, rel_size: float, padding: tuple[int, int] or float, pos: string, opacity: float):
         self.__input_path = input_path
         self.__event_handler = ImageEventHandler(
             output_path, watermark_path, rel_size, padding, pos, opacity)
@@ -44,8 +44,8 @@ if __name__ == "__main__":
     output_path = './marked'
     watermark_path = './watermark/sample.png'
     pos = 'BL'
-    padding = (200, 200)
-    opacity = 0.65
+    padding = 0.6
+    opacity = 0.7
     rel_size = 0.03
 
     if not os.path.exists(watermark_path):

@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 
-def watermark(img_path: string, output_path: string, watermark_path: string = './watermark/sample.png', rel_size: float = 0.021, padding: tuple[int, int] | tuple[float, float] = (200, 200), pos: string = 'BL', opacity: float = 0.6):
+def watermark(img_path: string, output_path: string, watermark_path: string = './watermark/sample.png', rel_size: float = 0.05, padding: tuple[int, int] or float = 0.5, pos: string = 'BL', opacity: float = 0.6):
     assert os.path.splitext(os.path.basename(watermark_path))[
         1] == '.png', "Watermark file must be of type PNG."
     assert pos in ['TL', 'TR', 'BL',
@@ -24,9 +24,10 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
     new_wm_h = np.sqrt(rel_size * img_area / wm_ratio)
     new_wm_w = wm_ratio * new_wm_h
     wm_img = wm_img.resize((int(new_wm_w), int(new_wm_h)))
-
-    # Find positional data for watermark based on given pos value
     wm_w, wm_h = wm_img.size
+    # Find positional data for watermark based on given pos value
+    if type(padding) == float:
+        padding = (int(wm_h*padding), int(wm_h*padding))
     wm_pos = ()
     if pos == 'TL':
         wm_pos = (padding[0], padding[1])
