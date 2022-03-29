@@ -6,35 +6,35 @@ A [Python 3.10](https://www.python.org/downloads/) program which autonomizes the
 
 Apart from **automatic watermarking**, it also supports **auto watermark color inversion** and **auto watermark scaling**.
 
-This software was developed by [Nico Ismaili](https://nico.ismaili.de/) with the primary goal of facilitating the selling of his [photographies](https://nico.ismaili.de/).
+This software was developed by [Nico Ismaili](https://nico.ismaili.de/) with the primary goal of facilitating the selling of [photographs](https://nico.ismaili.de/).
 
 ## Prerequisites
 
-To be able to run the program and install required dependencies you will need to have [Python 3.10](https://www.python.org/downloads/) and [pipenv](https://pipenv.pypa.io/en/latest/) installed.
+To be able to run the program and install the required dependencies you will need to have [Python 3.10](https://www.python.org/downloads/) and [pipenv](https://pipenv.pypa.io/en/latest/) installed.
 
 ## Getting Started
 
-Clone the repository, navigate to the project folder and run `pipenv install` to let [pipenv](https://pipenv.pypa.io/en/latest/) install all required dependencies.
+Clone the repository, navigate to the project folder and run `pipenv install` install all required dependencies.
 
-Then Run the python script [watermarker.py](./src/watermarker.py) by using the following command.
+Then run [watermarker.py](./src/watermarker.py) by using the following command:
 
 ```cmd
 python watermarker.py
 ```
 
-Afterwards, two folders should open name [unmarked](resource/unmarked/), in which images to be watermarked can be placed, and [marked](resource/marked/), the output folder of the watermarker.
+Afterwards, two folders should open name [unmarked](resource/unmarked/), in which unmarked images can be placed, and [marked](resource/marked/), the output folder of the program.
 
-To change the path of both in- or output folder as well as the watermark image, please refer to the next [chapter](#Configuration).
+To change the paths to both folders, as well as the watermark image, please refer to the next chapter.
 
 ## Configuration
 
 ## Examples
 
-In this section two different images, one [bright](./resource/unmarked/bright_og.jpg) and one [dark](./resource/unmarked/dark_og.jpg), are to be watermarked. In addition to this cropped versions of each image are provided to showcase the automatic relative sizing capabilities.
+In this section two different images, one [bright](./resource/unmarked/bright_og.jpg) and one [dark](./resource/unmarked/dark_og.jpg), are to be marked. Additionally, cropped versions of each image have been provided to showcase the software's automatic relative sizing capabilities.
 
 ### Originale Images
 
-These were the image inputted into the program.
+These are the inputted images.
 
 #### No Crop (Unmarked)
 
@@ -82,7 +82,7 @@ This is what was outputted by the program.
 
 ## Credits
 
-[Bright sample photo](resource/unmarked/bright_og.jpg) was created by [Alexey Lin](https://unsplash.com/@alex_lin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+The [bright sample photo](resource/unmarked/bright_og.jpg) was created by [Alexey Lin](https://unsplash.com/@alex_lin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 
-[Dark sample photo](resource/unmarked/dark_og.jpg) was created by [Osman Rana](https://unsplash.com/@osmanrana?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+The [dark sample photo](resource/unmarked/dark_og.jpg) was created by [Osman Rana](https://unsplash.com/@osmanrana?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
   
