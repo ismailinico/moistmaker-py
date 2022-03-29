@@ -20,13 +20,19 @@ Then run [watermarker.py](./src/watermarker.py) by using the following command:
 python watermarker.py
 ```
 
-Afterwards, a folder named [unmarked](resource/unmarked/) should open, in which unmarked images can be placed. Also in this folder is the [marked](resource/marked/) directory, in which marked images will appear.
+Afterwards, a folder named [unmarked](resource/unmarked/) should open, in which unmarked images can be placed. Also in this folder is the [marked](resource/unmarked/marked/) directory, in which marked images will appear.
 
 To change the paths to both folders, as well as the watermark image, please refer to the next chapter.
 
 ## Configuration
 
-Access to all configurable parameters of WaterMarker can be obtained by opening the [config.json](config.json) file in any text editor. In the file a variety of values can be fitted to one's specific use case. The name, default value, meaning, effect and range of each parameter can be found in the table below.
+Access to all configurable parameters of WaterMarker can be obtained by opening the [config.json](config.json) file in any text editor. In the file a variety of values can be fitted to one's specific use case. The name, type, range, default value, effect and of each parameter can be found in the table below.
+
+| name | type | range | default | effect |
+| ---- | ---- | ----- | ------- | ------ |
+|      |      |       |         |        |
+|      |      |       |         |        |
+|      |      |       |         |        |
 
 ## Compatibility
 
@@ -66,27 +72,27 @@ These are the images which were put inside the [unmarked](resource/unmarked/) di
 
 ### Watermarked images
 
-This is what was outputted by WaterMarker into the [marked](resource/marked/) directory.
+This is what was outputted by WaterMarker into the [marked](resource/unmarked/marked/) directory.
 
 #### No Crop (Marked)
 
-[<img src="resource/marked/bright_og_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="40%"/>](resource/marked/bright_og_marked.jpg)
-[<img src="resource/marked/dark_og_marked.jpg" alt="A long exposure of a street at night" width="45%"/>](resource/marked/dark_og_marked.jpg)
+[<img src="resource/unmarked/marked/bright_og_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="40%"/>](resource/unmarked/marked/bright_og_marked.jpg)
+[<img src="resource/unmarked/marked/dark_og_marked.jpg" alt="A long exposure of a street at night" width="45%"/>](resource/unmarked/marked/dark_og_marked.jpg)
 
 #### Instagram square crop (Marked)
 
-[<img src="resource/marked/bright_1x1_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="32%"/>](resource/marked/bright_1x1_marked.jpg)
-[<img src="resource/marked/dark_1x1_marked.jpg" alt="A long exposure of a street at night" width="32%"/>](marked/dark_1x1_marked.jpg)
+[<img src="resource/unmarked/marked/bright_1x1_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="32%"/>](resource/unmarked/marked/bright_1x1_marked.jpg)
+[<img src="resource/unmarked/marked/dark_1x1_marked.jpg" alt="A long exposure of a street at night" width="32%"/>](marked/dark_1x1_marked.jpg)
 
 #### Instagram landscape crop (Marked)
 
-[<img src="resource/marked/bright_2x1_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="32%"/>](resource/marked/bright_2x1_marked.jpg)
-[<img src="resource/marked/dark_2x1_marked.jpg" alt="A long exposure of a street at night" width="32%"/>](marked/dark_2x1_marked.jpg)
+[<img src="resource/unmarked/marked/bright_2x1_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="32%"/>](resource/unmarked/marked/bright_2x1_marked.jpg)
+[<img src="resource/unmarked/marked/dark_2x1_marked.jpg" alt="A long exposure of a street at night" width="32%"/>](marked/dark_2x1_marked.jpg)
 
 #### Instagram portrait crop (Marked)
 
-[<img src="resource/marked/bright_4x5_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="32%"/>](marked/bright_4x5_marked.jpg)
-[<img src="resource/marked/dark_4x5_marked.jpg" alt="A long exposure of a street at night" width="32%"/>](marked/dark_4x5_marked.jpg)
+[<img src="resource/unmarked/marked/bright_4x5_marked.jpg" alt="A white bicycle infront of a yellow container on a sandy road" width="32%"/>](marked/bright_4x5_marked.jpg)
+[<img src="resource/unmarked/marked/dark_4x5_marked.jpg" alt="A long exposure of a street at night" width="32%"/>](marked/dark_4x5_marked.jpg)
 
 ## Credits
 
