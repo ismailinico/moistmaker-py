@@ -40,7 +40,7 @@ As input images the current version of WaterMarker only supports the .jpg image 
 
 In this section two different images, one [bright](./resource/unmarked/bright_og.jpg) and one [dark](./resource/unmarked/dark_og.jpg), are to be marked. Additionally, cropped versions of each image have been provided to showcase the software's automatic relative sizing capabilities.
 
-### Originale Images
+### Original Images
 
 These are the inputted images.
 
