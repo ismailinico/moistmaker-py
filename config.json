@@ -1,0 +1,17 @@
+{
+    "paths": {
+        "unmarked": "./resource/unmarked",
+        "marked": "./resource/unmarked/marked",
+        "watermark": "./resource/watermark"
+    },
+    "watermarkSettings": {
+        "rel_size": 0.03,
+        "padding": 0.6,
+        "pos": "BL",
+        "opacity": 0.7,
+        "threshold": 150
+    },
+    "watcherSettings": {
+        "rec_watch": 0
+    }
+}
