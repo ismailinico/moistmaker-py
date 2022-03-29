@@ -1,14 +1,12 @@
-import os
 import string
-import sys
 import time
 
 from watchdog.observers import Observer
 
-from ImageEventHandler import ImageEventHandler
+from utils.image_event_handler import ImageEventHandler
 
 
-class ImageDirWatcher:
+class DirWatcher:
     def __init__(self, input_path: string, output_path: string, watermark_path: string, rel_size: float, padding: tuple[int, int] or float, pos: string, opacity: float):
         self.__input_path = input_path
         self.__event_handler = ImageEventHandler(

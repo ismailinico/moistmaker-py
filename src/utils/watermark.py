@@ -1,14 +1,11 @@
 import os
 import string
-import sys
 
 import numpy as np
 from PIL import Image
 
-from ImageDirWatcher import ImageDirWatcher
 
-
-def watermark(img_path: string, output_path: string, watermark_path: string = './watermark/sample.png', rel_size: float = 0.05, padding: tuple[int, int] or float = 0.5, pos: string = 'BL', opacity: float = 0.6):
+def watermark(img_path: string, output_path: string, watermark_path: string = '../../resource/watermark/sample.png', rel_size: float = 0.05, padding: tuple[int, int] or float = 0.5, pos: string = 'BL', opacity: float = 0.6):
     assert os.path.splitext(os.path.basename(watermark_path))[
         1] == '.png', "Watermark file must be of type PNG."
     assert pos in ['TL', 'TR', 'BL',
@@ -19,7 +16,7 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
 
     # Get watermark
     wm_img = Image.open(watermark_path)
-    wm_img.convert("RGBA")
+    wm_img = wm_img.convert("RGBA")
     wm_w, wm_h = wm_img.size
     img_area = img_w * img_h
     wm_ratio = wm_w / wm_h
@@ -29,6 +26,7 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
     new_wm_w = wm_ratio * new_wm_h
     wm_img = wm_img.resize((int(new_wm_w), int(new_wm_h)))
     wm_w, wm_h = wm_img.size
+
     # Find positional data for watermark based on given pos value
     if type(padding) == float:
         padding = (int(wm_h*padding), int(wm_h*padding))
@@ -58,7 +56,7 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
     new_color_data = []
     alpha = int(255*opacity)
     for pixel in wm_color_data:
-        if pixel[3] != 0:
+        if pixel[-1] != 0:
             if base_is_dark:
                 new_color_data.append((255, 255, 255, alpha))
             else:
@@ -72,29 +70,3 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
     output_img.paste(wm_img, wm_pos, mask=wm_img)
     output_img = output_img.convert('RGB')
     output_img.save(output_path)
-
-
-if __name__ == "__main__":
-    input_path = './unmarked'
-    output_path = './marked'
-    watermark_path = './watermark/sample.png'
-    pos = 'BL'
-    padding = 0.6
-    opacity = 0.7
-    rel_size = 0.03
-
-    if not os.path.exists(watermark_path):
-        os.makedirs(watermark_path)
-
-    if not os.path.exists(input_path):
-        os.makedirs(input_path)
-    elif len(sys.argv) > 1:
-        input_path = sys.argv[1]
-
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
-    elif len(sys.argv) > 2:
-        output_path = sys.argv[2]
-
-    ImageDirWatcher(input_path, output_path, watermark_path, rel_size,
-                    padding, pos, opacity).run()

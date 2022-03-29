@@ -4,7 +4,7 @@ import time
 
 from watchdog.events import RegexMatchingEventHandler
 
-from WaterMarker import watermark
+from utils.watermark import watermark
 
 
 class ImageEventHandler(RegexMatchingEventHandler):
