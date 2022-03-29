@@ -26,6 +26,8 @@ To change the paths to both folders, as well as the watermark image, please refe
 
 ## Configuration
 
+Access to all configurable parameters of WaterMarker can be obtained by opening the [config.json](config.json) file in any text editor. In the file a variety of values can be fitted to one's specific use case. The name, default value, meaning, effect and range of each parameter can be found in the table below.
+
 ## Compatibility
 
 WaterMarker runs on all Python compatible operating systems. If you experience an error on your system, please do not hesitate to [open a new issue](https://github.com/ismailinico/watermarker/issues/new) concerning your problem.
@@ -40,7 +42,7 @@ In this section two different images, one [bright](./resource/unmarked/bright_og
 
 ### Original Images
 
-These are the inputted images.
+These are the images which were put inside the [unmarked](resource/unmarked/) directory.
 
 #### No Crop (Unmarked)
 
@@ -64,7 +66,7 @@ These are the inputted images.
 
 ### Watermarked images
 
-This is what was outputted by the program.
+This is what was outputted by WaterMarker into the [marked](resource/marked/) directory.
 
 #### No Crop (Marked)
 
