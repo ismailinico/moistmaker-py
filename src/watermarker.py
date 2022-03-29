@@ -14,18 +14,21 @@ if __name__ == '__main__':
     opacity = 0.7
     rel_size = 0.03
 
-    if not os.path.exists(watermark_path):
-        os.makedirs(watermark_path)
-
     if not os.path.exists(input_path):
         os.makedirs(input_path)
     elif len(sys.argv) > 1:
         input_path = sys.argv[1]
+    os.startfile(input_path)
 
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     elif len(sys.argv) > 2:
         output_path = sys.argv[2]
+    os.startfile(output_path)
 
+    if not os.path.exists(watermark_path):
+        os.makedirs(watermark_path)
+        os.startfile(watermark_path)
+    
     DirWatcher(input_path, output_path, watermark_path, rel_size,
                padding, pos, opacity).run()
