@@ -56,10 +56,12 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
     new_color_data = []
     for pixel in wm_color_data:
         if pixel[-1] != 0:
-            if base_is_dark:
-                new_color_data.append((255, 255, 255, int(pixel[3] * opacity)))
+            if (base_is_dark and pixel[0] < 128) or (not base_is_dark and pixel[0] > 128):
+                new_color_data.append(
+                    (256 - pixel[0], 256 - pixel[1], 256 - pixel[2], int(pixel[3] * opacity)))
             else:
-                new_color_data.append((0, 0, 0, int(pixel[3] * opacity)))
+                new_color_data.append(
+                    (pixel[0], pixel[1], pixel[2], int(pixel[3] * opacity)))
         else:
             new_color_data.append(pixel)
     wm_img.putdata(new_color_data)
