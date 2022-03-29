@@ -26,13 +26,13 @@ To change the paths to both folders, as well as the watermark image, please refe
 
 ## Configuration
 
-Access to all configurable parameters of WaterMarker can be obtained by opening the [config.json](config.json) file in any text editor. In the file a variety of values can be fitted to one's specific use case. The name, type, range, default value, effect and of each parameter can be found in the table below.
+Access to all configurable parameters of WaterMarker can be obtained by opening the [config.json](config.json) file in any text editor. In the file a variety of values can be fitted to one's specific use case. The name, type, range, default value and effect of each configurable parameter can be found in the table below.
 
-| name | type | range | default | effect |
-| ---- | ---- | ----- | ------- | ------ |
-|      |      |       |         |        |
-|      |      |       |         |        |
-|      |      |       |         |        |
+| Name | Type | Range | Default Value | Effect |
+| ---- | ---- | ----- | ------------- | ------ |
+|      |      |       |               |        |
+|      |      |       |               |        |
+|      |      |       |               |        |
 
 ## Compatibility
 
