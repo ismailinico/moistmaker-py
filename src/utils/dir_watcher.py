@@ -25,13 +25,14 @@ class DirWatcher:
     __schedule: initializes Observer.
     """
 
-    def __init__(self, input_path: string, output_path: string, watermark_path: string, rel_size: float = 0.03, padding: tuple[int, int] or float = 0.6, pos: string = 'BL', opacity: float = 0.7, threshold: int = 150):
+    def __init__(self, input_path: string, output_path: string, watermark_path: string, rec_watch: bool = False, rel_size: float = 0.03, padding: tuple[int, int] or float = 0.6, pos: string = 'BL', opacity: float = 0.7, threshold: int = 150):
         """Initializes class attributes and forwards various parameters to ImageEventHandler.
 
         Args:
             input_path (string): Path to the to-be-observed directory.
             output_path (string): Path to the output directory.
             watermark_path (string): Path to the watermark image.
+            rec_watch (bool, optional): Define if input folder should be watched recursively.
             rel_size (float, optional): Percentage value between 1 and 0 of the total area of the base image used to scale the watermark. Defaults to 0.03.
             padding (tuple[int, int]orfloat, optional): Either an integer tupel of pixel margins, where [0] is the horizontal and [1] the vertical margin, or a percentage value between 1 and 0 of the watermark's pixelheight to be used as a margin on both sides. Defaults to 0.6.
             pos (string, optional): Watermark position value. Accepted values are 'TL', 'TR', 'BL' or 'BR'. Defaults to 'BL'.
@@ -39,6 +40,7 @@ class DirWatcher:
             threshold (int, optional): Threshold value which determines if an image is bright or dark. It is recommended to not touch this value. Defaults to 150.
         """
         self.__input_path = input_path
+        self.__rec_watch = rec_watch
         self.__event_handler = ImageEventHandler(
             output_path, watermark_path, rel_size, padding, pos, opacity, threshold)
         self.__event_observer = Observer()
@@ -63,5 +65,5 @@ class DirWatcher:
         self.__event_observer.schedule(
             self.__event_handler,
             self.__input_path,
-            recursive=True
+            recursive=self.__rec_watch
         )
