@@ -2,11 +2,9 @@
 
 ![Logo](resource/watermark/sample.png)
 
-A [Python 3.10](https://www.python.org/downloads/) program which autonomizes the application of watermarks to a specified set of images.
+A [Python 3.10](https://www.python.org/downloads/) program which autonomizes the application of watermarks to a specified set of images. Apart from **automatic watermarking**, it also supports **auto watermark color inversion** and **auto watermark scaling**.
 
-Apart from **automatic watermarking**, it also supports **auto watermark color inversion** and **auto watermark scaling**.
-
-This software was developed by [Nico Ismaili](https://nico.ismaili.de/) with the primary goal of facilitating the selling of [photographs](https://nico.ismaili.de/).
+This software was developed by [Nico Ismaili](https://nico.ismaili.de/) with the primary purpose of facilitating the selling of [photographs](https://nico.ismaili.de/).
 
 ## Prerequisites
 
@@ -14,7 +12,7 @@ To be able to run the program and install the required dependencies you will nee
 
 ## Getting Started
 
-Clone the repository, navigate to the project folder and run `pipenv install` install all required dependencies.
+Clone the repository, navigate to the project folder and run `pipenv install` to install all required dependencies.
 
 Then run [watermarker.py](./src/watermarker.py) by using the following command:
 
