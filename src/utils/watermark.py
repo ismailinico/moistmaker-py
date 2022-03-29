@@ -54,13 +54,12 @@ def watermark(img_path: string, output_path: string, watermark_path: string = '.
     # Adjust opacity (and invert)
     wm_color_data = wm_img.getdata()
     new_color_data = []
-    alpha = int(255*opacity)
     for pixel in wm_color_data:
         if pixel[-1] != 0:
             if base_is_dark:
-                new_color_data.append((255, 255, 255, alpha))
+                new_color_data.append((255, 255, 255, int(pixel[3] * opacity)))
             else:
-                new_color_data.append((0, 0, 0, alpha))
+                new_color_data.append((0, 0, 0, int(pixel[3] * opacity)))
         else:
             new_color_data.append(pixel)
     wm_img.putdata(new_color_data)
