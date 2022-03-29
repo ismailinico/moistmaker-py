@@ -22,11 +22,19 @@ Then run [watermarker.py](./src/watermarker.py) by using the following command:
 python watermarker.py
 ```
 
-Afterwards, two folders should open name [unmarked](resource/unmarked/), in which unmarked images can be placed, and [marked](resource/marked/), the output folder of the program.
+Afterwards, a folder named [unmarked](resource/unmarked/) should open, in which unmarked images can be placed. Also in this folder is the [marked](resource/marked/) directory, in which marked images will appear.
 
 To change the paths to both folders, as well as the watermark image, please refer to the next chapter.
 
 ## Configuration
+
+## Compatibility
+
+WaterMarker runs on all Python compatible operating systems. If you experience an error on your system, please do not hesitate to [open a new issue](https://github.com/ismailinico/watermarker/issues/new) concerning your problem.
+
+### Image types
+
+As input images the current version of WaterMarker only supports the .jpg image format. Watermark images must be in .png format.
 
 ## Examples
 
