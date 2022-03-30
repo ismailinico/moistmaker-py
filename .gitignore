@@ -128,30 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Ignore all image files except for sample data
-resource/marked/*
-#!resource/marked/bright_1x1_marked.jpg
-#!resource/marked/bright_2x1_marked.jpg
-#!resource/marked/bright_4x5_marked.jpg
-#!resource/marked/bright_og_marked.jpg
-#!resource/marked/bright_xl_marked.jpg
-#!resource/marked/dark_1x1_marked.jpg
-#!resource/marked/dark_2x1_marked.jpg
-#!resource/marked/dark_4x5_marked.jpg
-#!resource/marked/dark_og_marked.jpg
-#!resource/marked/dark_xl_marked.jpg
-
-unmarked/*
-#!resource/marked/bright_1x1.jpg
-#!resource/marked/bright_2x1.jpg
-#!resource/marked/bright_4x5.jpg
-#!resource/marked/bright_og.jpg
-#!resource/marked/bright_xl.jpg
-#!resource/marked/dark_1x1.jpg
-#!resource/marked/dark_2x1.jpg
-#!resource/marked/dark_4x5.jpg
-#!resource/marked/dark_og.jpg
-#!resource/marked/dark_xl.jpg
-
-resource/watermark/*
-#!watermark/sample.png
+# Ignore all image files
+resource/*
