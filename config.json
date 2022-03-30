@@ -1,7 +1,7 @@
 {
-    "unmarkedDirPath": "",
-    "markedDirPath": "",
-    "watermarkPath": "",
+    "unmarkedDirPath": "./resource/unmarked",
+    "markedDirPath": "./resource/unmarked/marked",
+    "watermarkPath": "./resource/watermark",
     "rel_size": 0.03,
     "padding": 0.6,
     "pos": "BL",
