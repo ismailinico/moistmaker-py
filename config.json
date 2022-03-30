@@ -1,17 +1,11 @@
 {
-    "paths": {
-        "unmarkedDirPath": "./resource/unmarked",
-        "markedDirPath": "./resource/unmarked/marked",
-        "watermarkPath": "./resource/watermark"
-    },
-    "watermarkSettings": {
-        "rel_size": 0.03,
-        "padding": 0.6,
-        "pos": "BL",
-        "opacity": 0.7,
-        "threshold": 150
-    },
-    "watcherSettings": {
-        "rec_watch": false
-    }
+    "unmarkedDirPath": "",
+    "markedDirPath": "",
+    "watermarkPath": "",
+    "rel_size": 0.03,
+    "padding": 0.6,
+    "pos": "BL",
+    "opacity": 0.7,
+    "threshold": 150,
+    "rec_watch": false
 }

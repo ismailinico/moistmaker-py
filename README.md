@@ -40,6 +40,10 @@ Access to all configurable parameters of WaterMarker can be obtained by opening 
 | threshold       | int                     | 0 to 255                                               | 150                          | Defines the threshold value of when the algorithm defines an area as bright or dark. **Only change this value if their is an issue with brightness detection.**                                                  |
 | rec_watch       | boolean                 | true or false                                          | false                        | Flag which defines if the unmarked folder should be watched recursively, meaning changes in all subfolders will be acted upon. **Set this value to false if your marked folder is inside your unmarked folder.** |
 
+Please restart the program for changes to take effect.
+
+## Usage
+
 ## Compatibility
 
 WaterMarker runs on all Python compatible operating systems. If you experience an error on your system, please do not hesitate to [open a new issue](https://github.com/ismailinico/watermarker/issues/new) concerning your problem.
