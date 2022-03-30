@@ -43,6 +43,8 @@ def check_path(path: string, desc: string):
         if not path or not os.path.exists(path):
             raise FileNotFoundError(
                 'FileNotFoundError: The path to the', desc, 'does not exist!')
+        else:
+            return False
     except FileNotFoundError as error:
         print(error)
         ans = query_yes_no(PROCEED_WITH_DEFAULT)
@@ -57,6 +59,8 @@ def check_bool(value: bool, name: string):
         if value == None:
             raise ValueError(
                 'ValueError: The value of', name, ' needs to be either true or false!')
+        else:
+            return False
     except ValueError as error:
         print(error)
         ans = query_yes_no(PROCEED_WITH_DEFAULT)
@@ -71,6 +75,8 @@ def check_color(color_value: int, name: string):
         if color_value < 0 or color_value > 255:
             raise ValueError(
                 VALUE_OF, name, ' needs to be between 0 and 255!')
+        else:
+            return False
     except ValueError as error:
         print(error)
         ans = query_yes_no(PROCEED_WITH_DEFAULT)
@@ -85,6 +91,8 @@ def check_percentage(percentage: float, name: string):
         if percentage < 0 or percentage > 1:
             raise ValueError(
                 VALUE_OF, name, 'needs to be between 0 and 1!')
+        else:
+            return False
     except ValueError as error:
         print(error)
         ans = query_yes_no(PROCEED_WITH_DEFAULT)
@@ -99,6 +107,8 @@ def check_pos(pos: string, range: list):
         if not pos in range:
             raise ValueError(
                 'ValueError: Position value is not one of the following accepted values:', range)
+        else:
+            return False
     except ValueError as error:
         print(error)
         ans = query_yes_no(PROCEED_WITH_DEFAULT)
@@ -110,10 +120,18 @@ def check_pos(pos: string, range: list):
 
 def check_padding(padding: list[int, int]):
     try:
-        if type(padding) != list or type(padding[0]) != int or type(padding[1]) != int:
-            raise TypeError(
-                'TypeError: Padding must either be specified as a float or an int list with length 2.')
-    except ValueError as error:
+        padding_error = TypeError(
+            'TypeError: Padding must either be specified as a float or an int list with length 2.')
+        if type(padding) == list:
+            if type(padding[0]) != int or type(padding[1]) != int:
+                raise padding_error
+            else:
+                return False
+        elif type(padding) == float:
+            return check_percentage(padding, 'padding')
+        else:
+            raise padding_error
+    except TypeError as error:
         print(error)
         ans = query_yes_no(PROCEED_WITH_DEFAULT)
         if ans:
