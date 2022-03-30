@@ -1,8 +1,8 @@
 {
     "paths": {
-        "unmarked": "./resource/unmarked",
-        "marked": "./resource/unmarked/marked",
-        "watermark": "./resource/watermark"
+        "unmarkedDirPath": "./resource/unmarked",
+        "markedDirPath": "./resource/unmarked/marked",
+        "watermarkPath": "./resource/watermark"
     },
     "watermarkSettings": {
         "rel_size": 0.03,
@@ -12,6 +12,6 @@
         "threshold": 150
     },
     "watcherSettings": {
-        "rec_watch": 0
+        "rec_watch": false
     }
 }
