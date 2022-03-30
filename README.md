@@ -26,13 +26,19 @@ To change the paths to both folders, as well as the watermark image, please refe
 
 ## Configuration
 
-Access to all configurable parameters of WaterMarker can be obtained by opening the [config.json](config.json) file in any text editor. In the file a variety of values can be fitted to one's specific use case. The name, type, range, default value and effect of each configurable parameter can be found in the table below.
+Access to all configurable parameters of WaterMarker can be obtained by opening the [config.json](config.json) file in any text editor. In the file a variety of values can be fitted to one's specific needs. The name, type, range, default value and explanation of each configurable parameter can be found in the table below.
 
-| Name | Type | Range | Default Value | Effect |
-| ---- | ---- | ----- | ------------- | ------ |
-|      |      |       |               |        |
-|      |      |       |               |        |
-|      |      |       |               |        |
+| Name            | Type                    | Range                                                  | Default Value                | Explanation                                                                                                                                                                                                      |
+| --------------- | ----------------------- | ------------------------------------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| unmarkedDirPath | string                  | -                                                      | "./resource/unmarked"        | Path to the folder in which unmarked images will be placed.                                                                                                                                                      |
+| markedDirPath   | string                  | -                                                      | "./resource/unmarked/marked" | Path to the folder in which marked images will be stored.                                                                                                                                                        |
+| watermarkPath   | string                  | -                                                      | "./resource/watermark"       | Path to the watermark image PNG file. To get the best results color your watermark either compeletely white or black.                                                                                            |
+| rel_size        | float                   | 0 to 1                                                 | 0.03                         | Defines the scale of the watermark as a percentage of the total area of the base image.                                                                                                                          |
+| padding         | float **or** [int, int] | 0 to 1 **or** [x, y], where x and y are whole numbers. | 0.6                          | Either an int list, from which the [0] defines the horizontal and [1] the vertical padding, or a percentage of the watermark pixel height, which will then be used as padding on both axes.                      |
+| pos             | string                  | "TL", "TR", "BL" or "BR"                               | "BL"                         | Defines the where the watermark will be pasted onto the base image. TL = top-left, TR = top-right, BL = bottom-left and BR = bottom-right.                                                                       |
+| opacity         | float                   | 0 to 1                                                 | 0.7                          | Defines the opacity of the watermark.                                                                                                                                                                            |  |
+| threshold       | int                     | 0 to 255                                               | 150                          | Defines the threshold value of when the algorithm defines an area as bright or dark. **Only change this value if their is an issue with brightness detection.**                                                  |
+| rec_watch       | boolean                 | true or false                                          | false                        | Flag which defines if the unmarked folder should be watched recursively, meaning changes in all subfolders will be acted upon. **Set this value to false if your marked folder is inside your unmarked folder.** |
 
 ## Compatibility
 
