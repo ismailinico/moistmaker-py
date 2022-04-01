@@ -1,6 +1,7 @@
 """
 Main module responsible for initial configuration and path finding. 
 """
+import argparse
 import json
 import os
 
@@ -9,6 +10,9 @@ from utils.error_handling import (check_bool, check_color, check_padding,
                                   check_path, check_percentage, check_pos)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    args = parser.parse_args()
+
     # Load config from JSON
     config_path = os.path.abspath(os.path.join(
         os.path.dirname(__file__), os.pardir, 'config.json'))
@@ -21,7 +25,7 @@ if __name__ == '__main__':
     default_vals = {'input_path': os.path.join(resource_base_path, 'unmarked'), 'output_path': os.path.join(resource_base_path, 'unmarked', 'marked'),
                     'watermark_path': os.path.join(resource_base_path, 'watermark/sample.png'), 'rel_size': 0.03, 'padding': 0.6, 'pos': 'BL', 'opacity': 0.7, 'threshold': 150, 'rec_watch': False}
 
-    # Get parameter values from config or use default values if not defined or out of bounds
+    # Get parameter values from config and check if they are valid
     input_path = os.path.abspath(config.get(
         'unmarkedDirPath', default_vals['input_path']))
     if check_path(input_path, 'unmarked directory'):
